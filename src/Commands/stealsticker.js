@@ -19,9 +19,9 @@ module.exports = class extends Command {
             return message.reply("Bu Komutu Kullanmak İçin \`MANAGE_EMOJIS_AND_STICKERS\` Yetkisine Sahip Olmalısın!");
         }
         else if (!message.guild.me.permissions.has("MANAGE_EMOJIS_AND_STICKERS")) {
-            return message.reply("Yetkim Yok")
+            return message.reply("Yetkim Bulunmamakta!")
         }
-        message.reply("Çalmak istediğin stickeri sohbete at").then(async () => {
+        message.reply("Çalmak istediğin stickeri sohbete gönder").then(async () => {
 
         const result = await message.channel.awaitMessages({filter: m => m.author.id === message.author.id, max: 1, time: 60000});
         if (!result.first()) {
